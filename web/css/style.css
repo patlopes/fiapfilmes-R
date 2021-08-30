@@ -1,87 +1,173 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;700&display=swap');
-
-:root{
+:root {
     --bg: #212121;
-    --bg2: #444444; 
+    --bg2: #444444;
     --primary: #FF0066;
     --base-color: #FFF;
 }
 
+
 /* css reset */
-*{
+
+* {
     margin: 0;
-    color:var(--base-color);
+    color: var(--base-color);
 }
 
-body{
+body {
     background-color: var(--bg);
     font-family: 'Roboto', sans-serif;
 }
 
-header{
+header {
     display: flex;
     padding: 1.5rem;
-    background-color:var(--bg2);
+    background-color: var(--bg2);
 }
 
-h1{
+h1 {
     font-family: 'Bebas Neue', cursive;
     font-size: 4rem;
     color: var(--primary);
 }
 
-nav{
+nav {
     display: flex;
     flex: 1;
 }
 
-nav ul{
+nav ul {
     display: flex;
     flex: 1;
     justify-content: space-between;
     align-self: center;
 }
 
-a{
+nav a:hover {
+    color: var(--primary);
+    border-bottom: var(--primary) 3px solid;
+    padding-bottom: 1rem;
+}
+
+a {
     color: var(--base-color);
     text-decoration: none;
 }
 
-li{
+li {
     list-style: none;
     flex: 1;
 }
 
-nav li:nth-child(3){
+nav li:nth-child(3) {
     flex: 2;
+    text-align: end;
 }
 
-#hero{
-    height: 250px;
+#hero {
+    height: 320px;
     position: relative;
 }
 
-#hero p{
+#hero p {
+    width: 40%;
     font-weight: bold;
     font-size: 3rem;
     line-height: 56px;
     text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
+    padding: 6rem;
 }
 
-#hero::before{
+#hero::before {
     content: "";
     position: absolute;
     height: 100%;
     width: 100%;
     background: url(../images/poster_guerra.jpg);
     box-shadow: inset 0px -25px 25px #212121;
+    z-index: -100;
+    background-position: center;
+    background-position-y: 30%;
+    filter: opacity(.4);
 }
 
-.poster{
+main {
+    margin-left: 3rem;
+}
+
+main h2 {
+    font-size: 1.5rem;
+    border-left: var(--primary) 5px solid;
+    line-height: 20px;
+    padding-left: .2rem;
+    margin: 1rem 0;
+}
+
+.lista-de-filmes {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.filme {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: .5rem;
+}
+
+.filme * {
+    margin-bottom: .5rem;
+}
+
+.poster {
     height: 280px;
+    border-radius: 5px;
 }
 
-.botao{
-    background-color: var(--primary) ;
+.filme .titulo {
+    font-size: 1.75rem;
+}
+
+.nota {
+    display: flex;
+    align-items: center;
+}
+
+.nota span {
+    color: gold;
+    margin-right: .3rem;
+}
+
+.nota p {
+    filter: opacity(.5);
+}
+
+.botao {
+    width: 100%;
+    background-color: var(--primary);
     border-radius: .5rem;
+    padding: .8rem 0;
+    text-align: center;
+    transition: box-shadow all 1s ease-in-out;
+}
+
+.botao:hover {
+    box-shadow: 0px 0px 10px var(--primary);
+}
+
+@media (max-width:768px) {
+    header {
+        flex-direction: column;
+    }
+    #hero p {
+        padding: 3rem;
+    }
+}
+
+@media (max-width:425px) {
+    nav li:nth-child(3) {
+        flex: 1;
+        text-align: start;
+    }
 }
